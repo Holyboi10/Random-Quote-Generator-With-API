@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="Container">
+        <div class="items">
+            <h2>Quotes</h2> <br>
+            
+            <div class="display-div"> <br>
+                <p id="quotedisplay"></p> <br>
+            <h3 id="quotedisplay2" style="color: orangered"></h3>
+            </div>
+            <button onclick="GetQuote()">New Quote</button> <br><br>
+
+        </div>
+
+    </div>
+
+    
+    
+
+
+
+    <script>
+        let quote = document.getElementById('quotedisplay')
+        let Author = document.getElementById('quotedisplay2')
+        let GetQuote = () => { 
+            fetch("https://api.quotable.io/random")
+    .then(function(Response){
+        return Response.json();
+    })
+    .then((items)=>{
+        
+        quotedisplay.innerHTML = items.content
+        quotedisplay2.innerHTML = items.author
+
+    })
+
+        }
+     
+   
+
+    </script>
+</body>
+</html>
